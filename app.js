@@ -1,5 +1,6 @@
 import jquery from "jquery";
 import * as Backbone from "backbone";
+import * as _ from "underscore";
 
 /**
  * Model
@@ -21,13 +22,16 @@ const todo = new TodoModel({ a: "初期値" });
 const MyView = Backbone.View.extend({
   tagName: "span",
   className: "foo",
+  template: _.template("hello: <%= name %>"),
   initialize: function(options) {
     console.log("viewのinitialize");
     this.render();
   },
   render: function() {
     // 適当にレンダリングしてみる
-    this.$el.html("foooo");
+    // const compiled = _.template("hello: <%= name %>");
+    // compiled({ name: "moe" });
+    this.$el.html(this.template({ name: "taro" }));
   }
 });
 
