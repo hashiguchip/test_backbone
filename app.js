@@ -1,4 +1,5 @@
 import jquery from "jquery";
+import $ from "jquery";
 import * as Backbone from "backbone";
 import * as _ from "underscore";
 
@@ -22,7 +23,7 @@ const todo = new TodoModel({ a: "初期値" });
 const MyView = Backbone.View.extend({
   tagName: "span",
   className: "foo",
-  template: _.template("hello: <%= name %>"),
+  template: _.template($("#test-template").html()),
   initialize: function(options) {
     console.log("viewのinitialize");
     this.render();
@@ -31,7 +32,8 @@ const MyView = Backbone.View.extend({
     // 適当にレンダリングしてみる
     // const compiled = _.template("hello: <%= name %>");
     // compiled({ name: "moe" });
-    this.$el.html(this.template({ name: "taro" }));
+    // TODO: モデルをはめ込む
+    this.$el.html(this.template({ title: "testタイトル" }));
   }
 });
 
