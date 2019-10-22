@@ -12,44 +12,26 @@
     <section class="todoapp">
       <header class="header">
         <h1>todoアプリ</h1>
-        <input
-          class="new-todo"
-          placeholder="What needs to be done?"
-          autofocus
-        />
       </header>
       <section class="main">
-        <input class="toggle-all" id="toggle-all" type="checkbox" />
-        <label for="toggle-all">Mark all as complete</label>
-        <ul class="todo-list"></ul>
+        <div class="task-input">
+          <div class="task-input__title">タスクを追加する</div>
+          <input
+            type="text"
+            id="task-input"
+            placeholder="なんでもこい！"
+            autofocus
+          />
+          <button class="task-input__submit">送信</button>
+        </div>
+        <div class="task-list">
+          <div class="task-list__title">残タスク一覧</div>
+          <div class="task-list__list task-block">
+            <div class="task-block__name">ゴミ捨てる</div>
+          </div>
+        </div>
       </section>
-      <footer class="footer"></footer>
     </section>
-    <script type="text/template" id="item-template">
-      <div class="view">
-          <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-          <label><%- title %></label>
-          <button class="destroy"></button>
-      </div>
-      <input class="edit" value="<%- title %>">
-    </script>
-    <script type="text/template" id="stats-template">
-      <span class="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
-      <ul class="filters">
-          <li>
-              <a class="selected" href="#/">All</a>
-          </li>
-          <li>
-              <a href="#/active">Active</a>
-          </li>
-          <li>
-              <a href="#/completed">Completed</a>
-          </li>
-      </ul>
-      <% if (completed) { %>
-      <button class="clear-completed">Clear completed</button>
-      <% } %>
-    </script>
     <script src="app.js"></script>
   </body>
 </html>
