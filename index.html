@@ -5,10 +5,6 @@
     <title>Backbone.js • TodoMVC</title>
   </head>
   <body>
-    <div id="test"></div>
-    <script type="text/template" id="test-template">
-      <div><%= title %></div>
-    </script>
     <section class="todoapp">
       <header class="header">
         <h1>todoアプリ</h1>
@@ -27,7 +23,11 @@
         <div class="task-list">
           <div class="task-list__title">残タスク一覧</div>
           <div class="task-list__list task-block">
-            <div class="task-block__name">ゴミ捨てる</div>
+            <script type="text/template" id="test-template">
+              <div><%= title %></div>
+              <div class="task-block__name">ゴミ捨てる</div>
+            </script>
+            <div id="test"></div>
           </div>
         </div>
       </section>

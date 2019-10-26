@@ -18,11 +18,8 @@ const TodoModel = Backbone.Model.extend({
   // }
 });
 
-console.log("むむむ");
-console.log(TodoModel);
-
 const todo = new TodoModel({
-  title: "タイトル！！！"
+  title: "タスクテスト！！！"
 });
 console.log(todo.get("title"));
 
@@ -36,11 +33,19 @@ const MyView = Backbone.View.extend({
   className: "foo",
   model: todo,
   template: _.template($("#test-template").html()),
+  events: {
+    click: "change"
+  },
+
   initialize: function(options) {
     this.render();
   },
   render: function() {
     this.$el.html(this.template(this.model.attributes));
+  },
+  change: function() {
+    todo.set({ title: "タイトル変更" });
+    this.render();
   }
 });
 
