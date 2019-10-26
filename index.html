@@ -12,20 +12,22 @@
       <section class="main">
         <div class="task-input">
           <div class="task-input__title">タスクを追加する</div>
-          <input
-            type="text"
-            id="task-input"
-            placeholder="なんでもこい！"
-            autofocus
-          />
-          <button class="task-input__submit">送信</button>
+          <script type="text/template" id="submit_template">
+            <input
+                    type="text"
+                    id="task-input"
+                    placeholder="なんでもこい！"
+                    autofocus
+            />
+            <button class="task-input__submit">送信</button>
+          </script>
+          <div id="submit"></div>
         </div>
         <div class="task-list">
           <div class="task-list__title">残タスク一覧</div>
           <div class="task-list__list task-block">
             <script type="text/template" id="test-template">
-              <div><%= title %></div>
-              <div class="task-block__name">ゴミ捨てる</div>
+              <div class="task-block__name"><%= title %></div>
             </script>
             <div id="test"></div>
           </div>
