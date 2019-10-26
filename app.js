@@ -9,12 +9,23 @@ import * as _ from "underscore";
 console.log("hello");
 
 const TodoModel = Backbone.Model.extend({
-  constructor: function() {
-    console.log("TodoModelのコンストラクタメソッド");
+  initialize: function(attrs, options) {
+    console.log("attrs", attrs);
+    console.log("options", options);
   }
+  // constructor: function() {
+  //   console.log("TodoModelのコンストラクタメソッド");
+  // }
 });
 
-const todo = new TodoModel({ a: "初期値" });
+console.log("むむむ");
+console.log(TodoModel);
+
+const todo = new TodoModel({
+  title: "タイトル！！！"
+});
+console.log(todo.get("title"));
+
 // console.log(todo.get("a"));
 
 /**
@@ -23,17 +34,13 @@ const todo = new TodoModel({ a: "初期値" });
 const MyView = Backbone.View.extend({
   tagName: "span",
   className: "foo",
+  model: todo,
   template: _.template($("#test-template").html()),
   initialize: function(options) {
-    console.log("viewのinitialize");
     this.render();
   },
   render: function() {
-    // 適当にレンダリングしてみる
-    // const compiled = _.template("hello: <%= name %>");
-    // compiled({ name: "moe" });
-    // TODO: モデルをはめ込む
-    this.$el.html(this.template({ title: "testタイトル" }));
+    this.$el.html(this.template(this.model.attributes));
   }
 });
 

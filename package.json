@@ -16,5 +16,8 @@
   "devDependencies": {
     "parcel": "^1.12.4",
     "prettier": "^1.18.2"
+  },
+  "scripts": {
+    "dev": "parcel index.html"
   }
 }
